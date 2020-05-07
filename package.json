@@ -1,8 +1,8 @@
 {
-  "name": "pb-extension",
+  "name": "pb-extension-template",
   "version": "1.0.0",
   "description": "A demo component extending pb-components",
-  "main": "index.js",
+  "main": "pb-extension-bundle.js",
   "scripts": {
     "start": "npm run docs && es-dev-server --node-resolve --watch --open --app-index index.html",
     "docs": "wca src -f json --outFile custom-elements.json",

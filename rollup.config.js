@@ -6,6 +6,11 @@ import { terser } from 'rollup-plugin-terser';
 
 const production = process.env.BUILD === 'production';
 
+/*
+ * Creates a new set of bundles which can replace the bundled version
+ * in TEI Publisher or an app generated from it. Unfortunately it is
+ * not possible to create a minimal bundle with just the new components.
+ */
 export default {
     input: [
         '@teipublisher/pb-components/src/pb-components-bundle.js',
