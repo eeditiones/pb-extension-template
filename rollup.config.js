@@ -1,5 +1,8 @@
 import resolve from '@rollup/plugin-node-resolve';
 import babel from 'rollup-plugin-babel';
+import copy from 'rollup-plugin-copy';
+import replace from '@rollup/plugin-replace';
+import { terser } from 'rollup-plugin-terser';
 
 const production = process.env.BUILD === 'production';
 
@@ -7,10 +10,12 @@ export default {
     input: [
         '@teipublisher/pb-components/src/pb-components-bundle.js',
         '@teipublisher/pb-components/src/pb-leaflet-map.js',
-        './src/pb-clipboard.js'
+        '@teipublisher/pb-components/src/pb-odd-editor.js',
+        '@teipublisher/pb-components/src/pb-edit-app.js',
+        './pb-extension-bundle.js'
     ],
     output: {
-        dir: 'resources/scripts',
+        dir: 'dist',
         format: 'es',
         sourcemap: !production
     },
@@ -33,27 +38,27 @@ export default {
             targets: [
                 {
                     src: './node_modules/leaflet/dist/leaflet.css',
-                    dest: 'resources/css/leaflet'
+                    dest: './css/leaflet'
                 },
                 {
                     src: './node_modules/leaflet/dist/images/*',
-                    dest: 'resources/images/leaflet'
+                    dest: './images/leaflet'
                 },
                 {
                     src: './node_modules/openseadragon/build/openseadragon/images/*',
-                    dest: 'resources/images/openseadragon'
+                    dest: './images/openseadragon'
                 },
                 {
                     src: './node_modules/openseadragon/build/openseadragon/openseadragon.min.js',
-                    dest: 'resources/lib/'
+                    dest: './lib/'
                 },
                 {
                     src: './node_modules/prismjs/themes/*',
-                    dest: 'resources/css/prismjs'
+                    dest: './css/prismjs'
                 },
                 {
                     src: './node_modules/@teipublisher/pb-components/i18n/common/*',
-                    dest: './resources/i18n/common'
+                    dest: './i18n/common'
                 }
             ]
         })

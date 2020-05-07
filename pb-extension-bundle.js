@@ -1,0 +1,1 @@
+import './src/pb-clipboard.js';
