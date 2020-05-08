@@ -8,12 +8,12 @@
     "docs": "wca src -f json --outFile custom-elements.json",
     "build": "npm run clean && rollup -c rollup.config.js",
     "build:production": "npm run clean && rollup -c rollup.config.js --environment BUILD:production",
-    "clean": "rimraf dist i18n images css lib custom-elements.json"
+    "clean": "rimraf dist i18n/common images css lib custom-elements.json"
   },
   "author": "",
   "license": "GPL-3.0-or-later",
   "dependencies": {
-    "@teipublisher/pb-components": "^0.9.29"
+    "@teipublisher/pb-components": "^0.9.31"
   },
   "devDependencies": {
     "@babel/plugin-proposal-object-rest-spread": "^7.9.6",

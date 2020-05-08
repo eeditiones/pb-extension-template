@@ -6,12 +6,15 @@
                 margin-bottom: 20px;
             }
         </style>
+        <script type="module" src="../node_modules/@teipublisher/pb-components/src/pb-page.js"></script>
         <script type="module" src="../src/pb-clipboard.js"></script>
     </head>
     <body>
         <h1>Using pb-clipboard</h1>
 
-        <pb-clipboard label="Quote as:">John Doe: "The miracles of foobar", Paradise Publishers, Little Village, Stardate 46254.7</pb-clipboard>
+        <pb-page locales="../i18n/{{ns}}/{{lng}}.json">
+            <pb-clipboard>John Doe: "The miracles of foobar", Paradise Publishers, Little Village, Stardate 46254.7</pb-clipboard>
+        </pb-page>
 
         <input type="text" name="test-clipboard" value="" size="60">
     </body>

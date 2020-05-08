@@ -1,5 +1,6 @@
 import { LitElement, html, css } from 'lit-element';
 import { pbMixin } from '@teipublisher/pb-components/src/pb-mixin';
+import { translate } from "@teipublisher/pb-components/src/pb-i18n";
 import '@polymer/paper-icon-button';
 import '@polymer/iron-icons';
 
@@ -22,12 +23,18 @@ export class PbClipboard extends pbMixin(LitElement) {
         };
     }
 
+    constructor() {
+        super();
+        this.label = 'clipboard.label';
+    }
+
     render() {
         return html`
-            <h3>${this.label}</h3>
+            <h3>${translate(this.label)}</h3>
             <div>
                 <slot></slot>
-                <paper-icon-button icon="icons:content-copy" @click="${this._copy}"></paper-icon-button>
+                <paper-icon-button icon="icons:content-copy" @click="${this._copy}"
+                    title="${translate('clipboard.copy')}"></paper-icon-button>
             </div>
         `;
     }
