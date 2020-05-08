@@ -1,17 +1,19 @@
 {
-  "name": "pb-extension-template",
+  "name": "@teipublisher/pb-extension-template",
   "version": "1.0.0",
-  "description": "A demo component extending pb-components",
+  "description": "A demo component to be used as template for extending pb-components",
   "main": "pb-extension-bundle.js",
   "scripts": {
     "start": "npm run docs && es-dev-server --node-resolve --watch --open --app-index index.html",
     "docs": "wca src -f json --outFile custom-elements.json",
     "build": "npm run clean && rollup -c rollup.config.js",
     "build:production": "npm run clean && rollup -c rollup.config.js --environment BUILD:production",
-    "clean": "rimraf dist i18n/common images css lib custom-elements.json"
+    "clean": "rimraf dist i18n/common images css lib custom-elements.json",
+    "prepare": "npm run docs && npm run build:production"
   },
-  "author": "",
+  "author": "Wolfgang Meier",
   "license": "GPL-3.0-or-later",
+  "repository": "https://gitlab.existsolutions.com/tei-publisher/pb-extension-template.git",
   "dependencies": {
     "@teipublisher/pb-components": "^0.9.31"
   },
