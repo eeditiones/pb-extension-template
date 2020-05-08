@@ -1,7 +1,7 @@
 node_modules
 dist
 custom-elements.json
-i18n
+i18n/common
 images
 lib
 css
