@@ -30,22 +30,19 @@ The bundle (written into `dist`) will include everything, i.e. the version of th
 The created library can be used as a drop-in replacement for the default `pb-components` library. To do so:
 
 1. clone `tei-publisher-app` or the generated app you would like to modify
-2. edit `package.json` and replace the dependency for `@teipublisher/pb-components` with the replacement library
-3. edit `build.properties` and change `scripts.dir` to point to the replacement library
-4. call `ant` to build tei-publisher-app
+2. edit `package.json` and replace the dependency for `@teipublisher/pb-components` with the replacement library. For example, to use the git source of `pb-extension-template` in `package.json`, change the dependencies as follows:
 
-For example, to use the git source of `pb-extension-template` in `package.json`, change the dependencies as follows:
-
-```json
-"dependencies": {
-    "@teipublisher/pb-extension-template": "git+https://github.com/eeditiones/pb-extension-template#master"
-}
-```
-
-then change `build.properties` to contain:
-
-```
-scripts.dir=node_modules/@teipublisher/pb-extension-template/dist
-```
-
-Building tei-publisher-app should then copy scripts and resources from `pb-extension-template` instead of `pb-components`.
+    ```json
+    "dependencies": {
+        "@teipublisher/pb-extension-template": "git+https://github.com/eeditiones/pb-extension-template#master"
+    }
+    ```
+3. edit `build.properties` and change `scripts.dir` to point to the replacement library, e.g.:
+    ```
+    scripts.dir=node_modules/@teipublisher/pb-extension-template/dist
+    ```
+4. edit `modules/config.xqm` and change the `$config:webcomponents` variable to read `local`:
+   ```xquery
+   declare variable $config:webcomponents := "local";
+   ```
+5. call `ant xar-local` to build a version of tei-publisher-app (or your own app) which loads the included version of the component library instead of the public one from CDN.
