@@ -51,3 +51,11 @@ The created library can be used as a drop-in replacement for the default `pb-com
    <script type="module" src="resources/scripts/pb-extension-bundle.js"></script>
    ```
    after the line importing `pb-components-bundle.js`.
+
+### Copying i18n files
+
+Finally, if your component needs custom i18n keys, copy the corresponding directory into `resources/i18n`. For example, this template repository has additional translations in `i18n/app`, so you should copy the contents of that directory into `resources/i18n/app` of TEI Publisher or your target app. In `index.html` (or wherever else you want to use your components) add a `locales` attribute to `pb-page` to make it aware that there are additional translations available:
+
+```html
+<pb-page data-template="pages:pb-page" locales="resources/i18n/{{ns}}/{{lng}}.json" unresolved="unresolved">
+```
