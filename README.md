@@ -46,3 +46,8 @@ The created library can be used as a drop-in replacement for the default `pb-com
    declare variable $config:webcomponents := "local";
    ```
 5. call `ant xar-local` to build a version of tei-publisher-app (or your own app) which loads the included version of the component library instead of the public one from CDN.
+6. to actually use the components you added (e.g. `pb-clipboard`), you need to import them into the HTML pages in which you want to use them. For example, to have the `pb-clipboard` component available in the main `index.html` of TEI Publisher or your app, add
+   ```html
+   <script type="module" src="resources/scripts/pb-extension-bundle.js"></script>
+   ```
+   after the line importing `pb-components-bundle.js`.
