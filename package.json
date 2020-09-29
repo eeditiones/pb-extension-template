@@ -15,7 +15,7 @@
   "license": "GPL-3.0-or-later",
   "repository": "https://gitlab.existsolutions.com/tei-publisher/pb-extension-template.git",
   "dependencies": {
-    "@teipublisher/pb-components": "^0.9.31"
+    "@teipublisher/pb-components": "latest"
   },
   "devDependencies": {
     "@babel/plugin-proposal-object-rest-spread": "^7.9.6",
