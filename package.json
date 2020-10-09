@@ -4,10 +4,10 @@
   "description": "A demo component to be used as template for extending pb-components",
   "main": "pb-extension-bundle.js",
   "scripts": {
-    "start": "npm run docs && es-dev-server --node-resolve --watch --open --app-index api.html",
+    "start": "npm run build && es-dev-server --node-resolve --watch --open --app-index api.html",
     "docs": "wca src -f json --outFile custom-elements.json",
-    "build": "npm run clean && rollup -c rollup.config.js",
-    "build:production": "npm run clean && rollup -c rollup.config.js --environment BUILD:production",
+    "build": "npm run clean && npm run docs && rollup -c rollup.config.js",
+    "build:production": "npm run clean && npm run docs && rollup -c rollup.config.js --environment BUILD:production",
     "clean": "rimraf dist i18n/common images css lib custom-elements.json",
     "prepare": "npm run docs && npm run build:production"
   },
